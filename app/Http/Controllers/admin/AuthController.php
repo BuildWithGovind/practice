@@ -24,7 +24,8 @@ class AuthController extends Controller
             return redirect()->back()
                 ->withErrors($validator)
                 ->withInput();
-        }
+        }   
+
 
         if (Auth::guard('web')->attempt([
             'email' => $request->email,
@@ -46,5 +47,4 @@ class AuthController extends Controller
     public function resetPassword(Request $request){
         return view('admin.pages.resetpassword');
     }
-
 }

@@ -80,6 +80,63 @@
                             </div>
                         </li>
 
+                        <li x-data="{ open: false }" class="mb-1">
+                            <button @click="open = !open" class="flex items-center justify-between w-full pl-3 py-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700">
+                                <div class="flex items-center">
+                                    <div class="flex items-center justify-center w-6 h-6">
+                                        <i class="fas fa-users text-sm"></i>
+                                    </div>
+                                    <span class="ml-3 text-sm font-medium lg:opacity-0 lg:sidebar-expanded:opacity-100 2xl:opacity-100 duration-200">Blogs</span>
+                                </div>
+                                <div class="flex items-center justify-center w-6 h-6">
+                                    <svg class="w-3 h-3 transform transition-transform duration-200" :class="{ 'rotate-90': open }" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                                    </svg>
+                                </div>
+                            </button>
+                            <div x-show="open" x-collapse class="mt-1 pl-9 space-y-1">
+                                <a href="{{ route('admin.blogs') }}" class="block py-1.5 text-sm rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700">All Blogs</a>
+                            </div>
+                        </li>
+
+                            <li x-data="{ open: false }" class="mb-1">
+                            <button @click="open = !open" class="flex items-center justify-between w-full pl-3 py-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700">
+                                <div class="flex items-center">
+                                    <div class="flex items-center justify-center w-6 h-6">
+                                        <i class="fas fa-users text-sm"></i>
+                                    </div>
+                                    <span class="ml-3 text-sm font-medium lg:opacity-0 lg:sidebar-expanded:opacity-100 2xl:opacity-100 duration-200">Category</span>
+                                </div>
+                                <div class="flex items-center justify-center w-6 h-6">
+                                    <svg class="w-3 h-3 transform transition-transform duration-200" :class="{ 'rotate-90': open }" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                                    </svg>
+                                </div>
+                            </button>
+                            <div x-show="open" x-collapse class="mt-1 pl-9 space-y-1">
+                                <a href="{{ route('categories.index') }}" class="block py-1.5 text-sm rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700">All Category</a>
+                            </div>
+                        </li>
+
+                        <li x-data="{ open: false }" class="mb-1">
+                            <button @click="open = !open" class="flex items-center justify-between w-full pl-3 py-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700">
+                                <div class="flex items-center">
+                                    <div class="flex items-center justify-center w-6 h-6">
+                                        <i class="fas fa-users text-sm"></i>
+                                    </div>
+                                    <span class="ml-3 text-sm font-medium lg:opacity-0 lg:sidebar-expanded:opacity-100 2xl:opacity-100 duration-200">Tests</span>
+                                </div>
+                                <div class="flex items-center justify-center w-6 h-6">
+                                    <svg class="w-3 h-3 transform transition-transform duration-200" :class="{ 'rotate-90': open }" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                                    </svg>
+                                </div>
+                            </button>
+                            <div x-show="open" x-collapse class="mt-1 pl-9 space-y-1">
+                                <a href="{{ route('admin.tests') }}" class="block py-1.5 text-sm rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700">All Test</a>
+                            </div>
+                        </li>
+
                         <!-- Accordion item: Products -->
                         <li x-data="{ open: false }" class="mb-1">
                             <button @click="open = !open" class="flex items-center justify-between w-full pl-3 py-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700">

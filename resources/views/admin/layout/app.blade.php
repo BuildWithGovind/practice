@@ -6,6 +6,76 @@
     <title>Creta - Professional Admin Dashboard</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.13.6/css/jquery.dataTables.min.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/responsive/2.5.0/css/responsive.dataTables.min.css">
+
+</head>
+<body class="h-full bg-gray-50 dark:bg-gray-900 text-gray-800 dark:text-gray-200 transition-colors duration-300">
+    <div class="flex h-full overflow-hidden">
+    
+        @include('admin.elements.aside')
+
+        <div class="flex-1 flex flex-col overflow-hidden">
+
+            <!-- Mobile header -->
+            <header class="lg:hidden flex items-center justify-between px-4 py-3 bg-white dark:bg-gray-800 border-b border-gray-200 dark:border-gray-700">
+                <div class="flex items-center">
+                    <button id="mobileSidebarToggle" class="mr-4 text-gray-500 hover:text-gray-600 dark:hover:text-gray-400">
+                        <i class="fas fa-bars text-xl"></i>
+                    </button>
+                    <h1 class="text-xl font-semibold text-gray-800 dark:text-gray-200">Dashboard</h1>
+                </div>
+                <div class="flex items-center">
+                    <button id="mobileSearchToggle" class="p-2 text-gray-500 hover:text-gray-600 dark:hover:text-gray-400">
+                        <i class="fas fa-search text-lg"></i>
+                    </button>
+                    <button class="p-2 ml-2 text-gray-500 hover:text-gray-600 dark:hover:text-gray-400">
+                        <i class="fas fa-bell text-lg"></i>
+                    </button>
+                </div>
+            </header>
+
+            <!-- Desktop header -->
+            <header class="hidden lg:flex items-center justify-between px-6 py-4 bg-white dark:bg-gray-800 border-b border-gray-200 dark:border-gray-700">
+                <div class="flex items-center">
+                    <h1 class="text-xl font-semibold text-gray-800 dark:text-gray-200">Dashboard Overview</h1>
+                </div>
+                <div class="flex items-center space-x-4">
+                    <div class="relative hidden md:block">
+                        <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                            <i class="fas fa-search text-gray-400"></i>
+                        </div>
+                        <input type="text" class="block w-full pl-10 pr-3 py-2 border border-gray-300 dark:border-gray-600 rounded-lg bg-gray-50 dark:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-primary-500" placeholder="Search...">
+                    </div>
+                    <button class="p-2 text-gray-500 hover:text-gray-600 dark:hover:text-gray-400 relative">
+                        <i class="fas fa-bell text-lg"></i>
+                        <span class="absolute top-0 right-0 w-2 h-2 rounded-full bg-red-500"></span>
+                    </button>
+                    <div class="relative">
+                        <button id="userMenuButton" class="flex items-center space-x-2 focus:outline-none">
+                            <div class="w-8 h-8 rounded-full bg-primary-500 flex items-center justify-center text-white font-medium">JD</div>
+                            <span class="hidden md:block text-sm font-medium">John Doe</span>
+                            <i class="fas fa-chevron-down hidden md:block text-xs"></i>
+                        </button>
+                        <div id="userMenu" class="hidden absolute right-0 mt-2 w-48 bg-white dark:bg-gray-800 rounded-md shadow-lg py-1 z-10 border border-gray-200 dark:border-gray-700">
+                            <a href="#" class="block px-4 py-2 text-sm text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700">Your Profile</a>
+                            <a href="#" class="block px-4 py-2 text-sm text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700">Settings</a>
+                            <a href="#" class="block px-4 py-2 text-sm text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700">Sign out</a>
+                        </div>
+                    </div>
+                </div>
+            </header>
+
+            @yield('content')
+        </div>
+
+    
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/responsive/2.5.0/js/dataTables.responsive.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
     <script>
         tailwind.config = {
             darkMode: 'class',
@@ -49,14 +119,6 @@
             }
         }
     </script>
-</head>
-<body class="h-full bg-gray-50 dark:bg-gray-900 text-gray-800 dark:text-gray-200 transition-colors duration-300">
-    <div class="flex h-full overflow-hidden">
-    
-        @include('admin.elements.aside')
-        @yield('content')
-    
-    </div>
 
     <script>
         // Toggle sidebar on mobile
@@ -122,6 +184,8 @@
             }));
         });
     </script>
-    <script src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
+
+
+    @stack('scripts')
 </body>
 </html>

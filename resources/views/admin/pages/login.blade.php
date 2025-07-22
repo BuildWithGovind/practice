@@ -42,14 +42,14 @@
             </div>
 
             <div class="flex items-center justify-between">
-                <div class="flex items-center">
+                <!-- <div class="flex items-center">
                     <input id="remember-me" name="remember-me" type="checkbox" class="h-4 w-4 text-primary-600 focus:ring-primary-500 border-gray-300 dark:border-gray-600 rounded dark:bg-gray-800">
                     <label for="remember-me" class="ml-2 block text-sm text-gray-700 dark:text-gray-300">Remember me</label>
-                </div>
+                </div> -->
 
-                <div class="text-sm">
+                <!-- <div class="text-sm">
                     <a href="#" class="font-medium text-primary-600 dark:text-primary-400 hover:text-primary-500 dark:hover:text-primary-300">Forgot your password?</a>
-                </div>
+                </div> -->
             </div>
 
             <div>
