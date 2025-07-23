@@ -46,7 +46,6 @@
         </div>
     </div>
 </main>
-
 @push('scripts')
 <script>
     $(document).ready(function() {
@@ -57,12 +56,22 @@
             language: {
                 search: "_INPUT_",
                 searchPlaceholder: "Search categories...",
+                lengthMenu: "Show _MENU_ entries",
+                info: "Showing _START_ to _END_ of _TOTAL_ entries",
+                infoEmpty: "Showing 0 to 0 of 0 entries",
+                infoFiltered: "(filtered from _MAX_ total entries)",
                 paginate: {
-                    previous: '<',
-                    next: '>'
+                    first: "First",
+                    last: "Last",
+                    next: "Next",
+                    previous: "Previous"
                 }
             },
-            dom: '<"flex justify-between items-center mb-4"<"flex items-center"l><"flex items-center"f>>rt<"flex justify-between items-center mt-4"<"flex items-center"i><"flex items-center"p>>'
+            dom: '<"flex flex-col md:flex-row md:items-center md:justify-between p-4"<"mb-4 md:mb-0"l><"md:ml-4"f>>rt<"flex flex-col md:flex-row md:items-center md:justify-between p-4"<"mb-4 md:mb-0"i><""p>>',
+            initComplete: function() {
+                $('.dataTables_filter input').addClass('border-gray-300 focus:border-primary-500 focus:ring-primary-500 rounded-md shadow-sm');
+                $('.dataTables_length select').addClass('border-gray-300 focus:border-primary-500 focus:ring-primary-500 rounded-md shadow-sm');
+            }
         });
     });
 </script>

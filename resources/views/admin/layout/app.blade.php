@@ -51,6 +51,14 @@
                         <i class="fas fa-bell text-lg"></i>
                         <span class="absolute top-0 right-0 w-2 h-2 rounded-full bg-red-500"></span>
                     </button>
+
+                  <button id="theme-toggle" class="flex items-center text-sm font-medium text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-300">
+                <div class="flex items-center justify-center w-8 h-8 rounded-full bg-gray-100 dark:bg-gray-700">
+                    <i class="fas fa-moon text-sm dark:hidden"></i>
+                    <i class="fas fa-sun text-sm hidden dark:block"></i>
+                </div>
+            </button>
+
                     <div class="relative">
                         <button id="userMenuButton" class="flex items-center space-x-2 focus:outline-none">
                             <div class="w-8 h-8 rounded-full bg-primary-500 flex items-center justify-center text-white font-medium">JD</div>
@@ -121,16 +129,7 @@
     </script>
 
     <script>
-        // Toggle sidebar on mobile
-        document.getElementById('mobileSidebarToggle').addEventListener('click', function() {
-            const sidebar = document.getElementById('sidebar');
-            const backdrop = document.getElementById('sidebarBackdrop');
-            
-            sidebar.classList.toggle('-translate-x-full');
-            backdrop.classList.toggle('opacity-0');
-            backdrop.classList.toggle('pointer-events-none');
-        });
-
+      
         // Close sidebar when clicking on backdrop
         document.getElementById('sidebarBackdrop').addEventListener('click', function() {
             const sidebar = document.getElementById('sidebar');
@@ -141,10 +140,6 @@
             backdrop.classList.add('pointer-events-none');
         });
 
-        // Toggle sidebar expansion on desktop
-        document.getElementById('sidebarExpand').addEventListener('click', function() {
-            document.getElementById('sidebar').classList.toggle('lg:sidebar-expanded');
-        });
 
         // Toggle dark mode
         document.getElementById('theme-toggle').addEventListener('click', function() {
