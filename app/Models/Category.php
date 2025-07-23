@@ -10,6 +10,7 @@ class Category extends Model
         'slug',
         'name',
         'is_active',
+        'description',
         'parent_id'
     ];
 

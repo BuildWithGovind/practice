@@ -13,12 +13,11 @@ class AuthController extends Controller
     }
 
     public function loginSubmit(Request $request)
-    {   
-
+    {      
         $validator = Validator::make($request->all(), [
             'email'    => 'required|email',
             'password' => 'required|min:6',
-        ]);
+        ]); 
 
         if ($validator->fails()) {
             return redirect()->back()
@@ -26,12 +25,10 @@ class AuthController extends Controller
                 ->withInput();
         }   
 
-
-
         if (Auth::guard('web')->attempt([
             'email' => $request->email,
             'password' => $request->password
-        ], $request->remember)) {
+        ])) {
         
             return redirect()->route('admin.dashboard');
         }

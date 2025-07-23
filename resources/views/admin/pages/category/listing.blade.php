@@ -3,41 +3,41 @@
 @section('title', 'Blog Management | Admin')
 
 @section('content')
-<main class="flex-1 overflow-y-auto p-4 md:p-6 bg-gray-50 dark:bg-gray-900">
+<main class="flex-1 overflow-y-auto p-4 md:p-6 bg-gray-50 dark:bg-gray-900 " >
 
     <div class="bg-white dark:bg-gray-800 rounded-lg shadow overflow-hidden">
         <div class="px-6 py-4 border-b border-gray-200 dark:border-gray-700 flex items-center justify-between">
-            <h3 class="text-lg font-semibold text-gray-800 dark:text-gray-200">All Blogs</h3>
-            <a href="{{ route('blogs.create') }}" class="text-sm text-primary-600 dark:text-primary-400 hover:text-primary-800 dark:hover:text-primary-300">Add New</a>
+            <h3 class="text-lg font-semibold text-gray-800 dark:text-gray-200">All Categories</h3>
+            <a href="{{ route('categories.create') }}" class="text-sm text-primary-600 dark:text-primary-400 hover:text-primary-800 dark:hover:text-primary-300">Add New</a>
         </div>
         <div class="overflow-x-auto">
-            <table id="blogsTable" class="min-w-full divide-y divide-gray-200 dark:divide-gray-700">
+            <table id="categoriesTable" class="min-w-full divide-y divide-gray-200 dark:divide-gray-700">
                 <thead class="bg-gray-50 dark:bg-gray-700">
                     <tr>
                         <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-300 uppercase">ID</th>
-                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-300 uppercase">Title</th>
-                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-300 uppercase">Author</th>
-                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-300 uppercase">Status</th>
+                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-300 uppercase">Name</th>
+                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-300 uppercase">Parent ID</th>
+                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-300 uppercase">Is Active</th>
                         <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-300 uppercase">Created At</th>
                         <th class="px-6 py-3 relative text-right"><span class="sr-only">Actions</span></th>
                     </tr>
                 </thead>
                 <tbody class="bg-white dark:bg-gray-800 divide-y divide-gray-200 dark:divide-gray-700">
-                    @foreach($blogs as $blog)
+                    @foreach($categories as $category)
                         <tr>
-                            <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-800 dark:text-gray-200">#{{ $blog->id }}</td>
-                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500 dark:text-gray-400">{{ $blog->title }}</td>
-                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500 dark:text-gray-400">{{ $blog->author->name ?? 'N/A' }}</td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-800 dark:text-gray-200">#{{ $category->id }}</td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500 dark:text-gray-400">{{ $category->name }}</td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500 dark:text-gray-400">{{ $category->parent ? $category->parent->name : 'Root' }}</td>
                             <td class="px-6 py-4 whitespace-nowrap">
-                                @if($blog->is_published)
-                                    <span class="px-2 inline-flex text-xs font-semibold rounded-full bg-green-100 dark:bg-green-500/20 text-green-800 dark:text-green-400">Published</span>
+                                @if($category->is_active)
+                                    <span class="px-2 inline-flex text-xs font-semibold rounded-full bg-green-100 dark:bg-green-500/20 text-green-800 dark:text-green-400">Active</span>
                                 @else
-                                    <span class="px-2 inline-flex text-xs font-semibold rounded-full bg-red-100 dark:bg-red-500/20 text-red-800 dark:text-red-400">Draft</span>
+                                    <span class="px-2 inline-flex text-xs font-semibold rounded-full bg-red-100 dark:bg-red-500/20 text-red-800 dark:text-red-400">Inactive</span>
                                 @endif
                             </td>
-                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500 dark:text-gray-400">{{ $blog->created_at->format('M d, Y') }}</td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500 dark:text-gray-400">{{ $category->created_at->format('M d, Y') }}</td>
                             <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
-                                <a href="{{ route('blogs.edit', $blog->id) }}" class="text-primary-600 dark:text-primary-400 hover:text-primary-900 dark:hover:text-primary-300">Edit</a>
+                                <a href="{{ route('categories.edit', $category->id) }}" class="text-primary-600 dark:text-primary-400 hover:text-primary-900 dark:hover:text-primary-300">Edit</a>
                             </td>
                         </tr>
                     @endforeach
@@ -46,6 +46,7 @@
         </div>
     </div>
 </main>
+
 
 @push('scripts')
 <script>

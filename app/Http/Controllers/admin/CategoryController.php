@@ -63,6 +63,9 @@ class CategoryController extends Controller
 
         $validated['slug'] = $slug;
         $validated['parent_id'] = $validated['parent_id'] ?? null;
+        if(!empty($request->description)){
+            $validated['description'] = $request->description;
+        }
 
         try {
             $category = Category::create($validated);
