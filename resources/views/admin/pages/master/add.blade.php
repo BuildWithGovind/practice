@@ -49,17 +49,6 @@
                 @enderror
             </div>
 
-            <div class="mt-4">
-                <label for="description" class="block mb-1 text-sm font-medium text-gray-700 dark:text-gray-300">Description</label>
-                <textarea id="description" name="description"
-                        rows="4"
-                        class="w-full border rounded border-gray-300 dark:border-gray-700 dark:bg-gray-700 dark:text-white p-2 focus:ring-blue-500 focus:border-blue-500"
-                        placeholder="Enter category description">{{ old('description') ?? $category->description ?? '' }}</textarea>
-                @error('description')
-                    <p class="mt-1 text-sm text-red-600">{{ $message }}</p>
-                @enderror
-            </div>
-
             <!-- Is Active -->
             <div>
                 <label for="is_active" class="block mb-1 text-sm font-medium text-gray-700 dark:text-gray-300">Status</label>

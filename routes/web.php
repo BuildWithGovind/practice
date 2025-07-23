@@ -6,9 +6,9 @@ use App\Http\Controllers\admin\HomeController;
 use App\Http\Controllers\admin\BlogController;
 use App\Http\Controllers\admin\TestController;
 use App\Http\Controllers\admin\CategoryController;
-use App\Http\Controllers\Front\HomeController as FrontHomeController;
-use App\Http\Controllers\Front\AuthController as FrontAuthController;
-use App\Http\Controllers\Front\UserController;
+use App\Http\Controllers\front\HomeController as FrontHomeController;
+use App\Http\Controllers\front\AuthController as FrontAuthController;
+use App\Http\Controllers\front\UserController;
 
 
 

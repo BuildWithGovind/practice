@@ -1,6 +1,6 @@
 @extends('admin.layout.app')
 
-@section('title', 'Blog Management | Admin')
+@section('title', 'Master Management | Admin')
 
 @section('content')
 <main class="flex-1 overflow-y-auto p-4 md:p-6 bg-gray-50 dark:bg-gray-900">
